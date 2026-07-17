@@ -1,186 +1,183 @@
-# Ambient LED System 💡 - Circular PCB with 3.3V Coin Cell - KiCad Design
+# My Ambient LED System - ATtiny85 + LDR + Mic - Circular PCB
 
-> Round Diya-style LED board with coin cell battery, responsive design - Designed in KiCad by Jay Waghmare - Pune, India
+> I designed this round Diya board with 3.3V coin cell, ATtiny85, light and sound sensors in KiCad 
 
-[![KiCad](https://img.shields.io/badge/KiCad-7.0-314CB0?style=for-the-badge&logo=kicad&logoColor=white)](https://kicad.org)
-[![Hardware](https://img.shields.io/badge/Type-Hardware%20Round%20PCB-orange?style=for-the-badge)](#)
-[![Battery](https://img.shields.io/badge/Power-3.3V%20Coin%20Cell%20BT1-green?style=for-the-badge)](#)
-[![PCB](https://img.shields.io/badge/PCB-Circular%20Diya%20Shape-purple?style=for-the-badge)](#)
-[![Author](https://img.shields.io/badge/Author-jay--waghmare-181717?style=for-the-badge&logo=github)](https://github.com/jay-waghmare)
+[![KiCad](https://img.shields.io/badge/Made%20with-KiCad-314CB0?style=for-the-badge&logo=kicad)](https://kicad.org)
+[![My Board](https://img.shields.io/badge/My%20Board-Circular%20Diya%20PCB-orange?style=for-the-badge)](#)
+[![My Power](https://img.shields.io/badge/My%20Power-BT1%203.3V%20Cell-green?style=for-the-badge)](#)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jay-waghmare/kicad-ambient-led-system/main/hardware/LayoutPcb.png" alt="Circular PCB - BT1 3.3V Cell" width="500" />
-  <br><em>Your Actual PCB - Circular Board with BT1 3.3V Cell, R1/R3/R4 5.6k, D1, MK1, U1, SW2, SW_SPDT - From your uploaded LayoutPcb.png</em>
+  <img src="https://raw.githubusercontent.com/jay-waghmare/kicad-ambient-led-system/main/hardware/Schmeatic-.png" alt="My Schematic - 5 Units" width="800" />
+  <br><em>My schematic - I divided into 5 units: Battery, ATtiny85 MCU, Light sensing, Light, Sound sensing</em>
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jay-waghmare/kicad-ambient-led-system/main/hardware/LayoutPcb.png" alt="My PCB" width="450" />
+  <br><em>My PCB layout - Circular with BT1 3.3V Cell, R1/R3/R4 5.6k, D1, MK1, U1, SW2 - My actual design</em>
 </p>
 
 ---
 
-## 🌟 What Is This? (Based on Your Actual PCB Image You Uploaded)
+## What I Made
 
-This is my **Ambient Responsive LED / Digital Diya** board - **Circular PCB** (Diya shape, purple Edge.Cuts) designed in KiCad, powered by **3.3V coin cell BT1 (CR2032)**.
+I made a **circular Diya LED board** that runs on a **3.3V coin cell (BT1)**. It has both **light sensing (LDR)** and **sound sensing (microphone)** and a **yellow LED**, all controlled by my **ATtiny85V**.
 
-**From your uploaded image `LayoutPcb.png` I see:**
+I wanted to make a Diya that:
+- Turns on automatically when dark (like real Diya at night)
+- Saves battery when bright
+- Maybe responds to clap sound too
 
-- **BT1 3.3V Cell** - Big circular holder on left side, labeled BT1, with text "3.3V Cell" in center - Coin cell battery holder (CR2032) - Main power, no USB needed, portable Diya
-- **R1 (top), R3 (middle), R4 5.6k (bottom)** - 3 resistors top right vertical, R1 labeled top, R3 middle, R4 bottom with "5.6k" text visible in your image - For LED current limiting / sensor bias - 5.6k for low power to save battery
-- **D1** - Middle near BT1 - Circular with + and - pads - LED or photodiode (D1 labeled)
-- **MK1** - Right of D1, small rectangular with 2 pads, labeled MK1 - **Microphone or LDR sensor** (MK usually = Microphone in KiCad)
-- **P2 / B2** - Near MK1, maybe LDR or sensor connector
-- **U1** - 8-pin IC bottom right, labeled U1, with 8 pads around rectangle (4 left, 4 right) - Brain of board - Could be ATtiny85 / NE555 Timer / LM358 Op-amp / MCP602 - Check your schematic what U1 is
-- **SW2** - Push button bottom middle, labeled SW2, with 4 corner pads + center pad, white outline - For on/off or mode selection
-- **SW_SPDT** - Slide switch bottom, labeled SW_SPDT, white rectangle with notch - SPDT switch for Power ON/OFF or Auto/Manual mode
-- **Purple circle** - Edge.Cuts - Circular board outline - Diya shape
-- **Red traces** - Top copper layer (F.Cu) connecting all components
+So I added both LDR and mic!
 
-**This is:** Battery-powered Diya that is **Ambient Responsive** - Could be light-responsive (LDR) or sound-responsive (Mic MK1) or simple manual with switches - **Perfect for Digital Diya project!**
+## My Schematic - 5 Units (What I Designed)
 
-## ✨ Board Features (From Your Image)
+I divided my schematic into 5 units in KiCad (you can see in my Schmeatic-.png):
 
-- ✅ **Circular PCB** - Diya shape, purple Edge.Cuts, round outline
-- ✅ **BT1 3.3V Cell** - Coin cell holder - Portable, no USB, runs on CR2032
-- ✅ **R1, R3, R4 (R4 5.6k)** - Resistors top right - 5.6k visible for low power
-- ✅ **D1** - LED / Sensor middle
-- ✅ **MK1** - Microphone / LDR sensor - Makes it ambient responsive
-- ✅ **U1** - 8-pin IC - Controls LED logic (ATtiny / 555 / op-amp)
-- ✅ **SW2** - Push button - Mode / Test button
-- ✅ **SW_SPDT** - Slide switch - Power on/off or mode select
-- ✅ **Red traces** - Top layer routing
-- ✅ **Low power** - Runs on 3.3V coin cell, 5.6k resistor saves battery
-- ✅ **Compact** - All components on single circular board
+### 1. My Battery Unit
+- **BT1 3.3V Cell** - I used a coin cell holder for CR2032 battery - Main power, portable, no USB needed
+- **SW2 SW_SPDT** - I added a SPDT slide switch for power on/off
 
-## 🛠️ Built With (From Your Image)
+### 2. My Microcontroller Unit - ATtiny85
+- **U1 ATtiny85V-10P** - I chose ATtiny85V low voltage version because it works on 1.8V-5.5V, perfect for my 3.3V coin cell
+  - Pin 8 VCC → I connected to +3.3V
+  - Pin 4 GND → GND
+  - Pin 6 PB1 → I connected to my LED (D1)
+  - Pin 7 PB2 → I connected to my LDR sensor (LDR node)
+  - Pin 2 PB3 → I connected to my Mic sensor (MIC node)
 
-- **Tool:** KiCad (your image shows KiCad PCB editor dark theme with grid dots, purple Edge.Cuts, red F.Cu traces, yellow F.Silk labels)
-- **Battery:** BT1 3.3V Cell - CR2032 coin cell holder (3V, labeled 3.3V Cell in your image)
-- **PCB:** Circular, likely single layer or double layer, purple circular outline, ~50-60mm diameter (Diya size)
-- **Components Visible:** BT1 (coin cell), R1, R3, R4 (5.6k), D1, MK1, U1 (8-pin DIP/SOIC), SW2 (push button), SW_SPDT (slide switch SPDT)
-- **Power:** 3.3V Cell only - No regulator needed - Direct battery to circuit - Ultra low power
+### 3. My Light Sensing Unit
+- **R1 R** - Fixed resistor to +3.3V
+- **R2 LDR07** - LDR to GND - Changes resistance based on light
+- **LDR node** - Between R1 and R2 → To ATtiny85 PB2
+- **How I made it:** +3.3V → R1 → LDR node → R2 LDR → GND - Voltage divider. Dark = High resistance → HIGH voltage, Bright = Low → LOW
 
-## 📁 Files (Your Current Repo - Live with 6 Commits)
+### 4. My Light Unit
+- **D1 5mm Yellow LED** - I chose yellow for warm Diya glow
+- **R3 R** - Resistor to GND - Limits current
+- **LED node** → ATtiny85 PB1 - My code controls LED on/off
+
+### 5. My Sound Sensing Unit
+- **R4 5.6k** - Pull-up resistor from +3.3V to MIC node - Value 5.6k visible in my PCB!
+- **MK1 Microphone_Condenser** - Electret mic to GND - Picks up clap/sound
+- **MIC node** - Between R4 and MK1 → To ATtiny85 PB3
+
+## My Board Features (From My Image)
+
+- **Circular PCB** - Diya shape
+- **BT1 3.3V Cell** - Coin cell holder
+- **R1, R3, R4 5.6k** - Resistors
+- **D1** - LED
+- **MK1** - Microphone / LDR sensor
+- **U1** - 8-pin IC (ATtiny85)
+- **SW2** - Push button
+- **SW_SPDT** - Slide switch
+- **Low power** - Runs on coin cell
+
+## 📁 My Files
 
 ```
 kicad-ambient-led-system/
-├── README.md (this file - FINAL professional version based on your circular PCB image)
-├── LICENSE (MIT)
+├── README.md (this file)
 ├── hardware/
-│   ├── LayoutPcb.png (YOUR circular PCB image - BT1, R1/R3/R4, D1, MK1, U1, SW2 - You uploaded 2 mins ago!)
-│   └── Schmeatic-.png (Your schematic screenshot - You uploaded 2 mins ago!)
-├── (Add your KiCad files next - see below)
-└── (Add more files after)
+│   ├── LayoutPcb.png (My circular PCB image)
+│   └── Schmeatic-.png (My schematic - 5 units)
+└── LICENSE
 ```
 
-**You already uploaded:**
-- `hardware/LayoutPcb.png` - Circular PCB with BT1 3.3V Cell, R1/R3/R4 5.6k, D1, MK1, U1, SW2, SW_SPDT - From your image shared
-- `hardware/Schmeatic-.png` - Schematic screenshot (spelled Schmeatic-)
+I already uploaded LayoutPcb.png and Schmeatic-.png
 
-**Still need to upload (if you have):**
-- Your KiCad project files: `ambient-led.kicad_pro`, `ambient-led.kicad_sch`, `ambient-led.kicad_pcb` (your actual KiCad files for this round board)
-- 3D render: KiCad PCB Editor → View → 3D View → Export PNG → `hardware/pcb/3d-render.png`
-- Gerbers: File → Fabrication Outputs → Gerbers → ZIP → `hardware/pcb/gerbers.zip`
-- Real board photo after fabrication: `hardware/photos/board.jpg`
+## How My Board Works
 
-## 🔧 How It Works (Update With Your Actual Circuit - Guessing From Image)
-
-**Based on BT1, R1/R3/R4 5.6k, D1, MK1, U1, SW2, SW_SPDT:**
-
-**Most Likely - Simple Diya with Battery + Switches:**
 ```
-BT1 3.3V Cell (CR2032) → SW_SPDT slide switch (power on/off)
-→ SW2 push button (momentary) → R1/R3/R4 resistors (5.6k limits current to save battery)
-→ D1 LED glows → U1 maybe blinks or controls brightness
-→ MK1 maybe LDR that auto-adjusts brightness based on room light (ambient responsive)
+Power: BT1 3.3V Cell → SW2 switch → Powers ATtiny85, sensors, LED
+
+Light Sensing: +3.3V → R1 → LDR node → R2 LDR07 → GND → LDR node → ATtiny85 PB2
+
+Sound Sensing: +3.3V → R4 5.6k → MIC node → MK1 Mic → GND → MIC node → ATtiny85 PB3
+
+LED: +3.3V → D1 Yellow LED → R3 → GND, controlled by ATtiny85 PB1
+
+My Code Plan:
+- Read PB2 LDR: Dark → LED on, Bright → LED off (save battery)
+- Read PB3 Mic: Clap → Toggle LED
 ```
 
-**If MK1 is LDR (Light Sensor) - Ambient Light Responsive:**
-```
-Room Dark → LDR MK1 high resistance → U1 turns LED D1 bright (Diya on)
-Room Bright → LDR low resistance → U1 turns LED dim/off (saves battery)
-SW_SPDT = Auto/Manual mode, SW2 = Test button
-R4 5.6k sets sensitivity
+**My example code for ATtiny85:**
+
+```cpp
+const int ledPin = 1; // PB1 - My D1 LED
+const int ldrPin = A1; // PB2 - My LDR
+const int micPin = A3; // PB3 - My Mic
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  int ldrValue = analogRead(ldrPin);
+  int micValue = analogRead(micPin);
+
+  if (ldrValue > 500) {
+    digitalWrite(ledPin, HIGH); // Dark → LED on
+  } else {
+    digitalWrite(ledPin, LOW); // Bright → LED off
+  }
+
+  if (micValue > 700) {
+    digitalWrite(ledPin, !digitalRead(ledPin)); // Clap → Toggle
+    delay(500);
+  }
+  delay(100);
+}
 ```
 
-**If MK1 is Microphone - Sound/Clap Responsive:**
-```
-Clap sound → MK1 mic picks → U1 (maybe LM358 op-amp or ATtiny) detects → Toggles D1 LED on/off
-SW2 = Manual on/off, SW_SPDT = Sound mode / Always on mode
-```
-
-**If U1 is ATtiny85:**
-```
-ATtiny85 reads MK1 sensor (LDR/mic), controls D1 LED via PWM for brightness
-SW2 changes mode, SW_SPDT powers on/off
-Code in ATtiny for ambient responsive logic
-```
-
-**What is U1 actually? What is MK1? What is D1?** Check your schematic `Schmeatic-.png` you uploaded - Open it and see what U1, MK1, D1 are labeled as in schematic - Update this section!
-
-## 📸 Your Actual Hardware (From Your Uploads)
+## My Photos
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jay-waghmare/kicad-ambient-led-system/main/hardware/LayoutPcb.png" alt="PCB Layout" width="500" />
-  <br><em>PCB Layout - Circular with BT1 3.3V Cell, R1/R3/R4, D1, MK1, U1, SW2</em>
+  <img src="https://raw.githubusercontent.com/jay-waghmare/kicad-ambient-led-system/main/hardware/Schmeatic-.png" alt="My Schematic" width="800" />
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jay-waghmare/kicad-ambient-led-system/main/hardware/Schmeatic-.png" alt="Schematic" width="600" />
-  <br><em>Schematic - Schmeatic-.png - Your schematic screenshot</em>
+  <img src="https://raw.githubusercontent.com/jay-waghmare/kicad-ambient-led-system/main/hardware/LayoutPcb.png" alt="My PCB" width="500" />
 </p>
 
-**Components visible in LayoutPcb.png:**
-- Left: **BT1 3.3V Cell** holder with 2 pads - Big circular
-- Top Right: **R1 (top), R3 (middle), R4 5.6k (bottom)** - Vertical resistors
-- Middle: **D1** circular + **MK1** rectangular + **B2/P2** 
-- Bottom Right: **U1** 8-pin IC
-- Bottom Middle: **SW2** push button (4 pads + center)
-- Bottom: **SW_SPDT** slide switch
-
-**Red lines = Copper traces**
-
-## 📦 How to View My Design
+## How to View My Design
 
 1. Install KiCad 7.0: https://kicad.org/download/
 2. Clone:
 ```
 git clone https://github.com/jay-waghmare/kicad-ambient-led-system.git
-cd kicad-ambient-led-system
 ```
-3. Open `ambient-led.kicad_pro` in KiCad (if you upload your KiCad project files)
-4. See PCB - Circular like in your image - With BT1, R1/R3/R4, D1, MK1, U1, SW2
+3. Open in KiCad
 
-## 🗺️ Roadmap (For This Round Board)
+## My Roadmap
 
-- [x] KiCad PCB design - Circular board with BT1, R1/R3/R4 5.6k, D1, MK1, U1, SW2, SW_SPDT - Your image - Done!
-- [x] Upload PCB layout image LayoutPcb.png - Done 2 mins ago!
-- [x] Upload schematic screenshot Schmeatic-.png - Done 2 mins ago!
-- [ ] Add KiCad project files: .kicad_pro, .kicad_sch, .kicad_pcb (upload via Add file → Upload files)
-- [ ] Export 3D render: KiCad → View → 3D View → Export PNG → hardware/pcb/3d-render.png
-- [ ] Add BOM with exact values: What is U1? (ATtiny? NE555? LM358?) What is MK1? (Mic? LDR? Buzzer?) What is D1? (LED type?) What are R1,R3 values? R4 is 5.6k visible!
-- [ ] Write working doc: How does BT1 + SW_SPDT + SW2 + U1 + MK1 + D1 work together? Is it auto on/off via light or sound?
-- [ ] Fabricate at JLCPCB: File → Fabrication Outputs → Gerbers → gerbers.zip → Upload to JLCPCB (circular board - select Edge.Cuts)
-- [ ] Solder: BT1 holder, resistors R1/R3/R4, D1 LED, MK1 sensor, U1 IC, SW2 button, SW_SPDT switch
-- [ ] Test: Insert CR2032 3V cell into BT1, slide SW_SPDT on, press SW2, see D1 LED glow! Test ambient response if MK1 is sensor
-- [ ] Take real photo: hardware/photos/board.jpg + video demo of LED glowing as Diya
+- [x] I designed KiCad schematic - 5 units - Done!
+- [x] I designed PCB - Circular - Done!
+- [x] I uploaded schematic and PCB images - Done!
+- [ ] I will add KiCad project files
+- [ ] I will write ATtiny85 code
+- [ ] I will fabricate PCB and test
 
-## 📝 What I Learned (From This Round Board)
+## What I Learned
 
-- Circular Edge.Cuts in KiCad - How to make round PCB for Diya shape (not rectangular)
-- BT1 3.3V Cell footprint - Coin cell holder
-- Low power design - Using 5.6k resistor for LED to make coin cell last long
-- SPDT slide switch SW_SPDT for power/mode selection
-- Push button SW2 for manual control
-- Compact placement on circular board - All components in small round area
+- Circular Edge.Cuts for Diya shape
+- BT1 coin cell holder
+- Low power with 5.6k resistor
+- ATtiny85V for coin cell
+- Voltage divider with LDR
+- Pull-up with mic
 
-## 👨‍💻 Author
+## About Me
 
-**Jay Waghmare** - Hardware Designer, Round PCB Diya Designer, Pune
-- GitHub: [@jay-waghmare](https://github.com/jay-waghmare) - Professional (2 repos: MachXO2-KiCad-Board with 14 commits + kicad-ambient-led-system with 6 commits = 20 commits today!)
-- Location: Pune, India
-- Old: [@jaywaghmare26](https://github.com/jaywaghmare26) (archive)
+I am **Jay Waghmare** - I design round PCB Diya with ATtiny85 + LDR + Mic
 
-If you like round PCB Diya designs with coin cell, please ⭐ star this repo!
+- My GitHub: [@jay-waghmare](https://github.com/jay-waghmare)
 
-## 📄 License
+If you like my round Diya PCB, please ⭐ star!
+
+## License
 
 MIT License
 
-> Circular Diya PCB with BT1 3.3V coin cell - R1/R3/R4 5.6k - MK1 sensor - U1 IC - SW2 + SW_SPDT - Designed from scratch in KiCad - Based on your actual PCB image LayoutPcb.png - Jay - Pune 2026 - 6 commits today!
+> My circular Diya PCB with BT1 3.3V Cell + U1 ATtiny85V + R2 LDR07 + D1 Yellow LED + R4 5.6k + MK1 mic - I designed from scratch in KiCad - Based on my actual schematic Schmeatic-.png and PCB LayoutPcb.png
