@@ -1,0 +1,13 @@
+# KiCad
+*-backups/
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.kicad_prl
+*-cache.lib
+*.kicad_pcb.lck
+fp-info-cache
+sym-lib-table
+*.net
+*.bak
+.DS_Store
+Thumbs.db
